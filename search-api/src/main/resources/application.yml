@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+logbook:
+  minimum-status: 400
+  strategy: "body-only-if-status-at-least"

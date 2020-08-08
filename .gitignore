@@ -1,0 +1,3 @@
+# Project exclude paths
+/provider-api/target/
+/search-api/target/
