@@ -2,34 +2,35 @@ package fr.ippon.provider.functional.controller;
 
 import fr.ippon.search.functional.model.Company;
 import fr.ippon.search.functional.model.Criteria;
+import fr.ippon.search.functional.model.Status;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.List;
+
+import static java.util.Collections.unmodifiableList;
 
 @RestController
 public class ProviderController {
 
-    @PostMapping("/provider/company/search")
-    public ResponseEntity<List<Company>> searchCompanies(@RequestBody Criteria criteria) {
-        List<Company> companies = Arrays.asList(
+    @GetMapping("/provider/companies")
+    public ResponseEntity<List<Company>> searchCompanies(Criteria criteria) {
+        List<Company> companies = unmodifiableList(List.of(
                 Company.builder()
                         .name("Ippon Technologie")
-                        .status("Active")
+                        .status(Status.A)
                         .streetName("16 boulevard des tentacules")
                         .country("FR")
                         .build(),
 
                 Company.builder()
                         .name(criteria.getName())
-                        .status("Closed")
+                        .status(Status.C)
                         .streetName("15 impasse du chat qui dort")
                         .country("BE")
                         .build()
-        );
+        ));
 
         return ResponseEntity.ok(companies);
     }

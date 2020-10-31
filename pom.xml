@@ -17,10 +17,10 @@
     <properties>
         <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <lombok.version>1.18.2</lombok.version>
+        <lombok.version>1.18.16</lombok.version>
         <logbook.version>2.1.0</logbook.version>
         <squareup-okhttp.version>4.1.0</squareup-okhttp.version>
-        <feign.version>10.2.0</feign.version>
+        <feign.version>10.11</feign.version>
     </properties>
 
     <dependencyManagement>
@@ -78,7 +78,7 @@
             </dependency>
             <dependency>
                 <groupId>io.github.openfeign</groupId>
-                <artifactId>feign-java8</artifactId>
+                <artifactId>feign-java11</artifactId>
                 <version>${feign.version}</version>
             </dependency>
             <dependency>
@@ -105,8 +105,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>11</source>
+                    <target>11</target>
                     <encoding>UTF-8</encoding>
                     <annotationProcessorPaths>
                         <path>
