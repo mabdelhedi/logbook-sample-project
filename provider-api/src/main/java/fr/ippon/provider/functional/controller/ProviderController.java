@@ -9,14 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static java.util.Collections.unmodifiableList;
-
 @RestController
 public class ProviderController {
 
     @GetMapping("/provider/companies")
     public ResponseEntity<List<Company>> searchCompanies(Criteria criteria) {
-        List<Company> companies = unmodifiableList(List.of(
+        List<Company> companies = List.of(
                 Company.builder()
                         .name("Ippon Technologie")
                         .status(Status.A)
@@ -30,7 +28,7 @@ public class ProviderController {
                         .streetName("15 impasse du chat qui dort")
                         .country("BE")
                         .build()
-        ));
+        );
 
         return ResponseEntity.ok(companies);
     }
